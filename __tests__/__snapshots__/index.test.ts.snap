@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Terraform Snapshot Should have resources with required properties 1`] = `
+{
+  "resource": {
+    "aws_s3_bucket": {
+      "test_bucket": [
+        {},
+      ],
+    },
+    "aws_s3_bucket_public_access_block": {
+      "block_public_access": [
+        {
+          "block_public_acls": true,
+          "block_public_policy": true,
+          "bucket": "\${aws_s3_bucket.test_bucket.id}",
+          "ignore_public_acls": true,
+          "restrict_public_buckets": true,
+        },
+      ],
+    },
+    "aws_s3_bucket_server_side_encryption_configuration": {
+      "bucket_encryption": [
+        {
+          "bucket": "\${aws_s3_bucket.test_bucket.id}",
+          "rule": [
+            {
+              "apply_server_side_encryption_by_default": [
+                {
+                  "sse_algorithm": "AES256",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    "aws_s3_bucket_versioning": {
+      "versioning": [
+        {
+          "bucket": "\${aws_s3_bucket.test_bucket.id}",
+          "versioning": [
+            {
+              "enabled": true,
+            },
+          ],
+        },
+      ],
+    },
+    "null_resource": {
+      "resource1": [
+        {},
+      ],
+      "resource2": [
+        {},
+      ],
+      "resource3": [
+        {},
+      ],
+    },
+  },
+}
+`;
